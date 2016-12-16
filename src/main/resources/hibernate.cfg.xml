@@ -1,0 +1,16 @@
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+    <!-- Assume test is the database name -->
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/xmarket?autoReconnect=true</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+
+    <property name="hibernate.connection.pool_size">10</property>
+    <property name="hibernate.connection.autocommit">true</property>
+
+    <mapping class="com.xmarket.hibernate.ProductHibernate" />
+  </session-factory>
+</hibernate-configuration>
