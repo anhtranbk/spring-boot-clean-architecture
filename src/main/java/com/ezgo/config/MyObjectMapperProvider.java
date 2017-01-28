@@ -7,11 +7,6 @@ import javax.ws.rs.ext.Provider;
 
 import static com.fasterxml.jackson.databind.SerializationFeature.INDENT_OUTPUT;
 
-/**
- * TODO: Class description here.
- *
- * @author <a href="https://github.com/tjeubaoit">tjeubaoit</a>
- */
 @Provider
 public class MyObjectMapperProvider implements ContextResolver<ObjectMapper> {
 

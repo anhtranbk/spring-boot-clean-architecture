@@ -7,12 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
-/**
- * TODO: Class description here.
- *
- * @author <a href="https://github.com/quangbd1904">quangbd1904</a>
- * @name JacksonConfig.
- */
 @Configuration
 public class JacksonConfig {
 
@@ -24,6 +18,5 @@ public class JacksonConfig {
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         // whatever else you need
     }
-
 }
 
