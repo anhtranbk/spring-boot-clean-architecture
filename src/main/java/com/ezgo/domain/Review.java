@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "comments", catalog = "ezgo")
-public class Comments implements java.io.Serializable {
+public class Review implements java.io.Serializable {
 
     private String id;
     private String owner;
@@ -25,11 +25,11 @@ public class Comments implements java.io.Serializable {
     private Date createTime;
     private Date updateTime;
 
-    public Comments() {
+    public Review() {
     }
 
-    public Comments(String id, String owner, String content, boolean deleted, String eventId, boolean state,
-                    Date createTime) {
+    public Review(String id, String owner, String content, boolean deleted, String eventId, boolean state,
+                  Date createTime) {
         this.id = id;
         this.owner = owner;
         this.content = content;
@@ -39,8 +39,8 @@ public class Comments implements java.io.Serializable {
         this.createTime = createTime;
     }
 
-    public Comments(String id, String owner, String content, boolean deleted, String eventId, boolean state,
-                    Date createTime, Date updateTime) {
+    public Review(String id, String owner, String content, boolean deleted, String eventId, boolean state,
+                  Date createTime, Date updateTime) {
         this.id = id;
         this.owner = owner;
         this.content = content;

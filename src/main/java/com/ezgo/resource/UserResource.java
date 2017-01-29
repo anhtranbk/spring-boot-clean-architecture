@@ -1,6 +1,6 @@
 package com.ezgo.resource;
 
-import com.ezgo.domain.Users;
+import com.ezgo.domain.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +27,7 @@ public class UserResource {
     }
 
     @PUT
-    public Response updateUser(Users user) {
+    public Response updateUser(User user) {
         return Response.ok().build();
     }
 }

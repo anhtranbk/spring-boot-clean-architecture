@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "events", catalog = "ezgo")
-public class Events implements java.io.Serializable {
+public class Book implements java.io.Serializable {
 
     private String id;
     private String name;
@@ -32,11 +32,11 @@ public class Events implements java.io.Serializable {
     private Date createTime;
     private Date updateTime;
 
-    public Events() {
+    public Book() {
     }
 
-    public Events(String id, String name, String province, String address, Date timeStart, String owner, boolean state,
-                  boolean deleted, Date createTime) {
+    public Book(String id, String name, String province, String address, Date timeStart, String owner, boolean state,
+                boolean deleted, Date createTime) {
         this.id = id;
         this.name = name;
         this.province = province;
@@ -48,9 +48,9 @@ public class Events implements java.io.Serializable {
         this.createTime = createTime;
     }
 
-    public Events(String id, String name, String description, String province, Double latitude, Double longitude,
-                  String address, Date timeStart, Date timeEnd, String owner, Integer categoryId, boolean state,
-                  boolean deleted, Date createTime, Date updateTime) {
+    public Book(String id, String name, String description, String province, Double latitude, Double longitude,
+                String address, Date timeStart, Date timeEnd, String owner, Integer categoryId, boolean state,
+                boolean deleted, Date createTime, Date updateTime) {
         this.id = id;
         this.name = name;
         this.description = description;

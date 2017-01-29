@@ -1,6 +1,6 @@
 package com.ezgo.resource;
 
-import com.ezgo.domain.Events;
+import com.ezgo.domain.Book;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DefaultValue;
@@ -22,55 +22,55 @@ import java.util.List;
  */
 @Component
 @Path("/")
-public class EventResource {
+public class BookResource {
 
     @HeaderParam("user")
     String userName;
 
     @GET
     @Path("/categories/{categoryId}/events")
-    public List<Events> getEventsByCategoryId(@PathParam("categoryId") String categoryId,
-                                              @DefaultValue("0") @QueryParam("offset") int offset,
-                                              @DefaultValue("20") @QueryParam("limit") int limit) {
+    public List<Book> getEventsByCategoryId(@PathParam("categoryId") String categoryId,
+                                            @DefaultValue("0") @QueryParam("offset") int offset,
+                                            @DefaultValue("20") @QueryParam("limit") int limit) {
         return new ArrayList<>();
     }
 
     @GET
     @Path("/events/trending")
-    public List<Events> getTrendingEvents(@DefaultValue("0") @QueryParam("offset") int offset,
-                                          @DefaultValue("20") @QueryParam("limit") int limit) {
+    public List<Book> getTrendingEvents(@DefaultValue("0") @QueryParam("offset") int offset,
+                                        @DefaultValue("20") @QueryParam("limit") int limit) {
         return new ArrayList<>();
     }
 
     @GET
     @Path("/events/{id}")
-    public Events getEventById(@PathParam("id") String eventId) {
+    public Book getEventById(@PathParam("id") String eventId) {
         return null;
     }
 
     @GET
     @Path("/me/events")
-    public List<Events> getMyEvents(@DefaultValue("0") @QueryParam("offset") int offset,
-                                    @DefaultValue("20") @QueryParam("limit") int limit) {
+    public List<Book> getMyEvents(@DefaultValue("0") @QueryParam("offset") int offset,
+                                  @DefaultValue("20") @QueryParam("limit") int limit) {
         return new ArrayList<>();
     }
 
     @POST
     @Path("/me/events")
-    public Response createEvent(Events event) {
+    public Response createEvent(Book event) {
         return Response.ok(event).build();
     }
 
     @PUT
     @Path("/me/events/{id}")
-    public Response updateEvent(Events event) {
+    public Response updateEvent(Book event) {
         return Response.ok(event).build();
     }
 
     @GET
     @Path("/me/events/likes")
-    public List<Events> getMyLikeEvents(@DefaultValue("0") @QueryParam("offset") int offset,
-                                        @DefaultValue("20") @QueryParam("limit") int limit) {
+    public List<Book> getMyLikeEvents(@DefaultValue("0") @QueryParam("offset") int offset,
+                                      @DefaultValue("20") @QueryParam("limit") int limit) {
         return new ArrayList<>();
     }
 

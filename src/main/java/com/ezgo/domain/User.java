@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "users", catalog = "ezgo")
-public class Users implements java.io.Serializable {
+public class User implements java.io.Serializable {
 
     private String id;
     private String displayName;
@@ -29,10 +29,10 @@ public class Users implements java.io.Serializable {
     private Date createTime;
     private Date updateTime;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(String id, String email, String password, String enabled, byte level, Date createTime) {
+    public User(String id, String email, String password, String enabled, byte level, Date createTime) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -41,8 +41,8 @@ public class Users implements java.io.Serializable {
         this.createTime = createTime;
     }
 
-    public Users(String id, String displayName, String email, String password, String avatar, Date birthday,
-                 String gender, String address, String enabled, byte level, Date createTime, Date updateTime) {
+    public User(String id, String displayName, String email, String password, String avatar, Date birthday,
+                String gender, String address, String enabled, byte level, Date createTime, Date updateTime) {
         this.id = id;
         this.displayName = displayName;
         this.email = email;
