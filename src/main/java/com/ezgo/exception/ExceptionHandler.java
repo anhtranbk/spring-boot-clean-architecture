@@ -36,8 +36,10 @@ public class ExceptionHandler implements ExceptionMapper<Throwable> {
             status = Response.Status.INTERNAL_SERVER_ERROR;
         }
 
-        ErrorPayload errorPayload = new ErrorPayload(status.getStatusCode(),
-                status.getReasonPhrase(), new String[]{e.getMessage()},
+        ErrorPayload errorPayload = new ErrorPayload(
+                status.getStatusCode(),
+                status.getReasonPhrase(),
+                new String[]{e.getMessage()},
                 uriInfo.getRequestUri().toString());
 
         return Response.status(status.getStatusCode())

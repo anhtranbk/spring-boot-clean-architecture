@@ -19,8 +19,10 @@ public class ExceptionSpring {
         logger.error(e.getMessage(), e);
 
         Response.StatusType status = Response.Status.INTERNAL_SERVER_ERROR;
-        ErrorPayload errorPayload = new ErrorPayload(status.getStatusCode(),
-                status.getReasonPhrase(), new String[]{e.getMessage()},
+        ErrorPayload errorPayload = new ErrorPayload(
+                status.getStatusCode(),
+                status.getReasonPhrase(),
+                new String[]{e.getMessage()},
                 request.getRequestURI());
 
         return ResponseEntity.status(status.getStatusCode()).body(errorPayload);
