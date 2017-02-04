@@ -16,6 +16,7 @@ public class JacksonConfig {
     @PostConstruct
     public void setup() {
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         // whatever else you need
     }
 }
