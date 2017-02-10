@@ -1,6 +1,6 @@
 package com.ezgo.exception;
 
-public class BaseException extends RuntimeException {
+public abstract class BaseException extends RuntimeException {
 
     public BaseException() {
     }
@@ -16,4 +16,6 @@ public class BaseException extends RuntimeException {
     public BaseException(Throwable cause) {
         super(cause);
     }
+
+    protected abstract int getStatusCode();
 }

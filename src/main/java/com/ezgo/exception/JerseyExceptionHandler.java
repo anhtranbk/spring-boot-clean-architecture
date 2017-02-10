@@ -24,7 +24,10 @@ public class JerseyExceptionHandler implements ExceptionMapper<Throwable> {
         log.error("Unexpected error: " + e.getMessage(), e);
 
         Response.StatusType status;
-        if (e instanceof WebApplicationException) {
+        if (e instanceof  BaseException) {
+            BaseException be = (BaseException) e;
+            status = Response.Status.fromStatusCode(be.getStatusCode());
+        } else if (e instanceof WebApplicationException) {
             WebApplicationException we = (WebApplicationException) e;
             status = we.getResponse().getStatusInfo();
         } else {

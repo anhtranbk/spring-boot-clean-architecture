@@ -12,6 +12,18 @@ import javax.ws.rs.core.Response;
 @Slf4j
 public class SpringExceptionHandler {
 
+    @ExceptionHandler(value = BaseException.class)
+    public ResponseEntity<Object> springErrorHandler(HttpServletRequest request, BaseException e) {
+        Response.StatusType status = Response.Status.fromStatusCode(e.getStatusCode());
+        ErrorPayload errorPayload = new ErrorPayload(
+                status.getStatusCode(),
+                status.getReasonPhrase(),
+                new String[]{e.getMessage()},
+                request.getRequestURI());
+
+        return ResponseEntity.status(status.getStatusCode()).body(errorPayload);
+    }
+
     @ExceptionHandler(value = Throwable.class)
     public ResponseEntity<Object> springErrorHandler(HttpServletRequest request, Exception e) {
         log.error("Unexpected error: " + e.getMessage(), e);
