@@ -1,7 +1,9 @@
 package com.ezgo.app.controller;
 
+import com.ezgo.app.dto.AccessTokenDTO;
+import com.ezgo.app.dto.SignInDTO;
 import com.ezgo.app.dto.SignUpDTO;
-import com.ezgo.app.dto.UserInfo;
+import com.ezgo.app.dto.UserDTO;
 import com.ezgo.app.service.AuthService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,13 @@ public class AuthController {
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserInfo userSignUp(@RequestBody SignUpDTO signUpDTO) {
+    public UserDTO userSignUp(@RequestBody SignUpDTO signUpDTO) {
         return authService.userSignUp(signUpDTO);
+    }
+
+    @PostMapping("/signin")
+    @ResponseStatus(HttpStatus.CREATED)
+    public AccessTokenDTO userSignIn(@RequestBody SignInDTO signInDTO) {
+        return authService.userSignIn(signInDTO);
     }
 }
