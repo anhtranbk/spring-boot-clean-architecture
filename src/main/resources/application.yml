@@ -9,15 +9,10 @@ logging:
             hibernate: WARN
             springframework:
                 web: WARN
-        root: WARN
-
-mybatis:
-    config: classpath:/config/mybatis-config.xml
-
-root_photo_path: /var/www/ezgo/uploads
+        root: INFO
 
 server:
-    port: ${port:8080}
+    port: ${PORT:8080}
 
 spring:
     datasource:
@@ -26,16 +21,16 @@ spring:
         max-active: 8
         max-wait: 30000
         maxIdle: 2
-        minEvictableIdleTimeMillis: 120000
         minIdle: 1
-        password: ${DATABASE_PASSWORD:root}
+        minEvictableIdleTimeMillis: 120000
         removeAbandoned: true
         test-on-borrow: true
         testOnConnect: true
         timeBetweenEvictionRunsMillis: 30000
-        url: ${DATABASE_URL:jdbc:mysql://localhost/ezgo?autoReconnect=true&useSSL=false}
-        username: ${DATABASE_USERNAME:root}
         validationQuery: SELECT 1
+        url: ${DATABASE_URL:jdbc:mysql://localhost/bookapp?autoReconnect=true&useSSL=false}
+        username: ${DATABASE_USERNAME:bookapp}
+        password: ${DATABASE_PASSWORD:bookapp}
     jackson:
         serialization:
             indent_output: true
