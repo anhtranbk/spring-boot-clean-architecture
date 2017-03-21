@@ -1,0 +1,17 @@
+version: '3'
+services:
+    db:
+        image: 'mysql:5.7'
+        environment:
+            MYSQL_HOST: '0.0.0.0'
+            MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+            MYSQL_DATABASE: bookapp
+            MYSQL_USER: bookapp
+            MYSQL_PASSWORD: bookapp
+        ports:
+            - '3306:3306'
+        volumes:
+            - mysql_data:/var/lib/mysql
+
+volumes:
+    mysql_data:
