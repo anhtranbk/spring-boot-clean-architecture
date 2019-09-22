@@ -6,6 +6,7 @@ import com.example.spring.app.book.respository.CategoryRepository;
 import com.example.spring.app.book.service.CategoryService;
 import com.example.spring.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,16 +34,34 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDTO create(CategoryDTO categoryDTO) {
-        return null;
+        Category category = new Category();
+        category.setName(categoryDTO.getName());
+        category.setDescription(categoryDTO.getDescription());
+        category = categoryRepository.save(category);
+
+        return new CategoryDTO(category);
     }
 
     @Override
     public CategoryDTO update(CategoryDTO categoryDTO) {
-        return null;
+        if (!categoryRepository.exists(categoryDTO.getId())) {
+            throw new ResourceNotFoundException("Category ID " + categoryDTO.getId() + " not found");
+        }
+
+        Category category = new Category();
+        category.setName(categoryDTO.getName());
+        category.setDescription(categoryDTO.getDescription());
+        category = categoryRepository.save(category);
+
+        return new CategoryDTO(category);
     }
 
     @Override
-    public int delete(int categoryId) {
-        return 0;
+    public void delete(int categoryId) {
+        try {
+            categoryRepository.delete(categoryId);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(e);
+        }
     }
 }
