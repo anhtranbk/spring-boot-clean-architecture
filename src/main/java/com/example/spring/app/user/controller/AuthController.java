@@ -29,7 +29,6 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    @ResponseStatus(HttpStatus.CREATED)
     public AccessTokenDTO userSignIn(@RequestBody SignInDTO signInDTO) {
         return authService.userSignIn(signInDTO);
     }
